@@ -134,6 +134,17 @@ window.addEventListener('DOMContentLoaded', () => {
 startTimeInput.addEventListener('input', updateBar);
 workDurationInput.addEventListener('input', updateBar);
 
-window.onload = () => {
+function refreshBarEveryMinute() {
     updateBar();
+    // Calculate ms until next minute
+    const now = new Date();
+    const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+    setTimeout(function() {
+        updateBar();
+        setInterval(updateBar, 60000);
+    }, msToNextMinute);
+}
+
+window.onload = () => {
+    refreshBarEveryMinute();
 };
