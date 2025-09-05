@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overload Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar" role="banner">
+        <div class="spacer" aria-label="Logo">
+            <!-- Simple clock logo SVG -->
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="vertical-align: middle;" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="18" stroke="#ff9800" stroke-width="3" fill="#fff"/>
+                <line x1="20" y1="20" x2="20" y2="10" stroke="#ff9800" stroke-width="2" stroke-linecap="round"/>
+                <line x1="20" y1="20" x2="28" y2="20" stroke="#ff9800" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="heading">
+            <h1 tabindex="0">Overload Clock</h1>
+        </div>
+        <nav class="header" aria-label="Theme switch">
+            <label class="switch" for="themeSwitch">
+                <span class="emoji" id="moon" aria-label="Dark mode">🌙</span>
+                <input type="checkbox" id="themeSwitch" checked tabindex="0" aria-checked="true" aria-label="Toggle dark/light mode">
+                <span class="slider" aria-hidden="true"></span>
+                <span class="emoji" id="sun" aria-label="Light mode">☀️</span>
+            </label>
+        </nav>
+    </header>
+    <main>
+        <section class="card" role="region" aria-label="Work time settings">
+            <form class="inputs" autocomplete="off" aria-label="Time settings">
+                <label for="startTime">Start Time:
+                    <input type="time" id="startTime" name="startTime" tabindex="0" aria-label="Start time">
+                </label>
+                <label for="workDuration">Work Duration:
+                    <input type="text" id="workDuration" name="workDuration" value="8:00" pattern="^([0-9]{1,2}):([0-5][0-9])$" title="Format: HH:MM (e.g. 8:45)" tabindex="0" aria-label="Work duration">
+                </label>
+            </form>
+            <div id="barContainer" aria-label="Progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div id="progressBar"></div>
+            </div>
+            <section id="overtimeContainer" style="display:none;" aria-label="Overtime info">
+                <h2 tabindex="0">Overtime</h2>
+                <div id="overtimeStopwatch" aria-live="polite">00:00:00</div>
+            </section>
+        </section>
+    </main>
+    <audio id="alarmSound" src="alarm.mp3" preload="auto" aria-label="Alarm sound"></audio>
+    <footer role="contentinfo" class="impressum">
+        <h2>Impressum</h2>
+        <p>
+            Overload Clock<br>
+            Developed by [Your Name or Company]<br>
+            Contact: <a href="mailto:info@example.com">info@example.com</a><br>
+            Address: Example Street 1, 12345 Example City<br>
+            <a href="/privacy-policy.html">Privacy Policy</a>
+        </p>
+    <p style="font-size: 0.9em; color: #888; margin-top: 1em;">&copy; 2025 Overload Clock. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
